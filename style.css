@@ -1,0 +1,119 @@
+:root{
+/* ### Primary */
+--Very-dark-blue: hsl(233, 47%, 7%);            /* (main background) */
+--Dark-desaturated-blue: hsl(244, 38%, 16%);    /* (card background) */
+--Soft-violet: hsl(277, 64%, 61%);              /*(accent)*/
+
+/* ### Neutral */
+--White: hsl(0, 0%, 100%);                              /*(main heading, stats)*/
+--Slightly-transparent-white: hsla(0, 0%, 100%, 0.75);  /*(main paragraph)*/
+--Slightly-transparent-white2: hsla(0, 0%, 100%, 0.6);   /* (stat headings)*/
+}
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--Very-dark-blue);
+    color: var(--White);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Lexend Deca";
+}
+
+.container{
+    display: flex;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.left{
+    width: 50%;
+    padding: 5rem;
+    background-color: var(--Dark-desaturated-blue);
+}
+
+.mini-flex{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+    text-transform: uppercase;
+}
+
+.left span{
+    color: var(--Soft-violet);
+}
+
+.left > p{
+    font-size: 15px;
+    color: var(--Slightly-transparent-white);
+    margin-top: 1.5rem;
+}
+
+.mini-flex div p:first-child{
+    font-size: 1.5rem;
+    font-family: "Inter";
+    font-weight: 700;
+}
+
+.mini-flex div p:nth-child(2){
+    font-size: 15px;
+    color: var(--Slightly-transparent-white2);
+    margin-top: .5rem;
+}
+
+.right{
+    width: 50%;
+    background-image: url(./image-header-desktop.jpg);  
+    background-size: cover;
+}
+
+.right::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: hsla(277, 80%, 61%, 0.5);
+}
+
+@media screen and (max-width: 700px) {
+    body{
+        align-items: flex-start;
+        padding: 3rem 1rem;
+    }
+
+    .container{
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .right, .left{
+        width: 100%;
+    }
+
+    .right{
+        height: 40vh;
+        background-image: url(./image-header-mobile.jpg);
+        background-size: cover;
+    }
+
+    .mini-flex{
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .left{
+        text-align: center;
+        padding: 2rem; 
+    }
+
+    .left > p{
+        line-height: 1.3rem;
+    }
+}
+
